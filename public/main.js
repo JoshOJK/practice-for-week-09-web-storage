@@ -2,35 +2,44 @@
 
 // For storing user's theme selection in the browser
 function storeTheme(themeName) {
-    // Your code here
+    window.localStorage.setItem("websiteTheme", themeName)
 }
+
 
 // For restoring theme, if selected by the user in the past
 function restoreTheme() {
-    // Your code here
+    const theme = window.localStorage.getItem("websiteTheme")
+    if(theme) {
+        setTheme(theme)
+    }
+
 }
 
 // For clearing theme selection from the browser's storage (reset to default)
 
 function clearTheme() {
-    // Your code here
+    window.localStorage.removeItem("websiteTheme")
 }
 
 /* ================================ PHASE 2 ================================ */
 
 // For storing user's display name
 function storeName(displayName) {
-    // Your code here
+    window.sessionStorage.display = displayName
+
 }
 
 // For restoring user's display name, if set in the past
 function restoreName() {
-    // Your code here
+    const storedName = window.sessionStorage.getItem('display')
+    if(storedName) {
+        setInputValue('display-name', storedName)
+    }
 }
 
 // For clearing user's display name from browser storage
 function clearName() {
-    // Your code here
+    window.sessionStorage.removeItem('display-name')
 }
 
 /* ========================================================================= */
